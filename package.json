@@ -45,7 +45,7 @@
     "@jay-js/ui": "^3.0.0",
     "@types/node": "^20.11.30",
     "autoprefixer": "^10.4.19",
-    "daisyui": "^4.8.0",
+    "daisyui": "^4.9.0",
     "electron": "^29.1.5",
     "electron-builder": "^24.13.3",
     "postcss": "^8.4.38",
