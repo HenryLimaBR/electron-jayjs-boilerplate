@@ -1,5 +1,15 @@
 {
-  "name": "jayelectron",
+  "name": "electron-jayjs-boilerplate",
+  "description": "Electron with JayJS boilerplate",
+  "license": "GPL-3.0-only",
+  "author": {
+    "name": "MacroStudio Team",
+    "url": "https://github.com/MacroStudio-Solutions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HenryLimaBR/electron-jayjs-boilerplate.git"
+  },
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -11,10 +21,11 @@
   "main": "dist-electron/main.js",
   "build": {
     "directories": {
-      "output": "out-electron",
+      "output": "build",
       "buildResources": "build-electron"
     },
-    "appId": "jayjs-electron-boilerplate",
+    "appId": "org.jayjs.electron-boilerplate",
+    "productName": "JayJS Electron Boilerplate",
     "win": {
       "target": [
         "nsis"
@@ -25,23 +36,22 @@
       "oneClick": true,
       "installerIcon": "icon.ico",
       "uninstallerIcon": "icon.ico",
-      "uninstallDisplayName": "JayElectronBoilerplate",
+      "uninstallDisplayName": "JayJS Electron Boilerplate",
       "allowToChangeInstallationDirectory": false
     }
   },
-  "dependencies": {
-    "@jay-js/system": "latest",
-    "@jay-js/ui": "latest"
-  },
   "devDependencies": {
+    "@jay-js/system": "^2.5.6",
+    "@jay-js/ui": "^3.0.0",
+    "@types/node": "^20.11.30",
+    "autoprefixer": "^10.4.19",
+    "daisyui": "^4.8.0",
     "electron": "^29.1.5",
-    "autoprefixer": "^10.4.16",
-    "daisyui": "^3.9.4",
     "electron-builder": "^24.13.3",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5",
-    "typescript": "^5.2.2",
-    "vite": "^4.5.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.4.3",
+    "vite": "^5.2.6",
     "vite-plugin-electron": "^0.28.4"
   }
 }
