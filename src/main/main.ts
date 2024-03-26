@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow, ipcMain, Menu } from 'electron'
 
 let win: BrowserWindow | null = null
 
@@ -9,7 +9,6 @@ function createWindow() {
     webPreferences: {
       preload: import.meta.resolve('./preload.mjs').replace(/file:\/+/, ''),
     },
-    
   })
 
   win.setMenuBarVisibility(false)
@@ -21,6 +20,8 @@ function createWindow() {
   win.on('closed', () => {
     win = null
   })
+
+  return win
 }
 
 app.on('window-all-closed', () => {
@@ -30,6 +31,8 @@ app.on('window-all-closed', () => {
 })
 
 app.whenReady().then(() => {
+  const win = createWindow()
+
   // IPC Events
   ipcMain.handle('getElectronVersionInfo', () => {
     return {
@@ -55,5 +58,20 @@ app.whenReady().then(() => {
     }
   })
 
-  createWindow()
+  win.setMenu(
+    Menu.buildFromTemplate([
+      {
+        label: 'File',
+        submenu: [
+          {
+            label: 'Quit',
+            click: () => {
+              app.quit()
+            },
+            accelerator: 'CmdOrCtrl+Q',
+          },
+        ],
+      },
+    ])
+  )
 })
