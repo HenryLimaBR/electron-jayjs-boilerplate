@@ -28,6 +28,7 @@ export function Routes(app: HTMLDivElement) {
       ]
     }
   ], {
+    prefix: import.meta.env.DEV ? "" : location.pathname,
     target: app,
     onError: (error) => {
       if (error.cause === "no-match") {
